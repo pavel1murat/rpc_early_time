@@ -1,0 +1,171 @@
+# -*- mode:tcl -*-
+
+#include "rpc_early_time/flatpigammaMix-cut.pbi_01.murat.fcl"
+
+source.firstRun: 1002
+source.firstSubRun: 0
+source.maxEvents: 1000000
+services.SeedService.policy:  autoIncrement
+services.SeedService.maxUniqueEngines: 100
+services.SeedService.baseSeed: 598894988
+physics.filters.ootMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/56/bd/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000640.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/d1/72/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000314.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/9e/5b/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000602.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/04/da/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000456.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/87/03/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000230.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/79/0a/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000526.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/13/f0/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000428.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/ad/f9/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000504.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/b3/13/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000382.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/00/03/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000214.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/16/d9/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000276.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/64/a5/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000012.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/b9/5e/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000208.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/01/58/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000416.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-CRV-cat/MDC2018a/art/2c/6c/sim.mu2e.oot-CRV-cat.MDC2018a.001002_00000536.art"
+]
+physics.filters.neutronMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/neutron-CRV-cat/MDC2018a/art/3a/50/sim.mu2e.neutron-CRV-cat.MDC2018a.001002_00019240.art"
+]
+physics.filters.dioMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/dio-CRV-cat/MDC2018a/art/2e/75/sim.mu2e.dio-CRV-cat.MDC2018a.001002_00013662.art"
+]
+physics.filters.photonMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/photon-CRV-cat/MDC2018a/art/67/78/sim.mu2e.photon-CRV-cat.MDC2018a.001002_00000126.art"
+]
+physics.filters.PSMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/95/bf/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000014.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/cb/97/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000008.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/4a/3f/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000011.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/53/cc/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000004.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/34/d2/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000006.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/b7/c1/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000005.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/02/84/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000023.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/b0/6d/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000002.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/af/0d/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000003.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/bb/fc/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000009.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/a5/46/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000016.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/b9/41/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000018.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/ec/a0/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000013.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/c5/4d/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000010.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/d9/b1/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000022.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/e7/4c/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000024.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/d0/a5/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000012.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/ee/da/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000019.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/2d/d8/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000007.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/39/98/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000017.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/36/14/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000020.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/00/51/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000021.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/a1/ef/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000001.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/65/63/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000015.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/PS-CRV-cut/MDC2018a/art/f5/09/sim.mu2e.PS-CRV-cut.MDC2018a.001002_00000000.art"
+]
+physics.filters.TSMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/1a/35/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000015.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/69/ab/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000017.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/76/17/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000006.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/aa/55/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000001.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/78/7e/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000003.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/af/b3/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000016.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/e0/59/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000000.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/0c/28/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000011.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/2f/4c/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000002.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/d7/49/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000024.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/09/59/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000014.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/66/fa/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000022.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/da/f2/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000021.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/d8/be/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000004.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/32/e3/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000019.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/81/57/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000013.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/65/5e/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000008.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/63/8b/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000012.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/6a/5a/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000018.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/d8/40/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000023.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/9f/ae/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000009.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/d0/75/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000010.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/ed/e0/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000007.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/0e/1c/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000020.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/TS-CRV-cat/MDC2018a/art/f9/78/sim.mu2e.TS-CRV-cat.MDC2018a.001002_00000005.art"
+]
+physics.filters.DSMixerCRV.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/20/61/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000024.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/22/bf/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000005.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/09/b0/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000021.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/9c/f0/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000017.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/cb/1b/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000000.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/d5/86/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000006.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/28/bc/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000008.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/71/2e/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000020.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/d6/86/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000003.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/9c/c3/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000010.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/d7/b6/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000012.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/3b/3c/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000007.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/df/67/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000001.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/5c/2d/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000016.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/b1/37/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000015.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/a8/5c/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000018.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/6f/49/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000002.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/a5/af/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000022.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/bc/b2/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000023.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/d4/90/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000011.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/8a/44/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000009.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/d6/4d/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000019.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/29/46/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000004.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/50/64/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000014.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-CRV-cut/MDC2018a/art/e5/d0/sim.mu2e.DS-CRV-cut.MDC2018a.001002_00000013.art"
+]
+physics.filters.ootMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/99/31/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000668.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/f5/6f/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000422.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/bd/8e/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000472.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/e6/0a/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000214.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/a9/3b/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000404.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/fb/28/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000504.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/38/28/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000322.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/7f/e6/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000594.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/ec/b0/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000210.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/dd/41/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000544.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/c9/56/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000316.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/2b/23/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000104.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/c7/a7/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000178.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/a7/e5/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000016.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/oot-TrkCal-cat/MDC2018a/art/53/9f/sim.mu2e.oot-TrkCal-cat.MDC2018a.001002_00000350.art"
+]
+physics.filters.neutronMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/neutron-TrkCal-cat/MDC2018a/art/85/f4/sim.mu2e.neutron-TrkCal-cat.MDC2018a.001002_00021190.art"
+]
+physics.filters.dioMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/dio-TrkCal-cat/MDC2018a/art/d6/6a/sim.mu2e.dio-TrkCal-cat.MDC2018a.001002_00015249.art"
+]
+physics.filters.photonMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/photon-TrkCal-cat/MDC2018a/art/77/05/sim.mu2e.photon-TrkCal-cat.MDC2018a.001002_00002358.art"
+]
+physics.filters.flashMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/fd/f5/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00021020.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/6f/67/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00012820.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/8f/b0/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00008020.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/db/43/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00030800.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/a8/57/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00003620.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/a2/79/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00019820.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/12/5e/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00034400.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/1c/85/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00023020.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/39/c0/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00019620.art",
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/DS-flash-TrkCal-cut/MDC2018a/art/a0/98/sim.mu2e.DS-flash-TrkCal-cut.MDC2018a.001002_00020020.art"
+]
+physics.filters.protonMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/proton-TrkCal/MDC2018a/art/b1/ea/sim.mu2e.proton-TrkCal.MDC2018a.001002_00000129.art"
+]
+physics.filters.deuteronMixerTrkCal.fileNames : [
+"/pnfs/mu2e/tape/phy-sim/sim/mu2e/deuteron-TrkCal/MDC2018a/art/86/50/sim.mu2e.deuteron-TrkCal.MDC2018a.001002_00000043.art"
+]
+services.TFileService.fileName: "nts.MU2EGRIDDSOWNER.flatpigamma-mix.MU2EGRIDDSCONF.001002_00000000.root"
+outputs.Output.fileName : "dig.MU2EGRIDDSOWNER.flatpigamma-mix.MU2EGRIDDSCONF.001002_00000000.art"
+mu2emetadata.fcl.prologkeys: [  ]
+mu2emetadata.fcl.inkeys: [ "physics.filters.ootMixerCRV.fileNames", "physics.filters.neutronMixerCRV.fileNames", "physics.filters.dioMixerCRV.fileNames", "physics.filters.photonMixerCRV.fileNames", "physics.filters.PSMixerCRV.fileNames", "physics.filters.TSMixerCRV.fileNames", "physics.filters.DSMixerCRV.fileNames", "physics.filters.ootMixerTrkCal.fileNames", "physics.filters.neutronMixerTrkCal.fileNames", "physics.filters.dioMixerTrkCal.fileNames", "physics.filters.photonMixerTrkCal.fileNames", "physics.filters.flashMixerTrkCal.fileNames", "physics.filters.protonMixerTrkCal.fileNames", "physics.filters.deuteronMixerTrkCal.fileNames" ]
+mu2emetadata.fcl.outkeys: [ "services.TFileService.fileName", "outputs.Output.fileName" ]
+# End code added by generate_fcl:
+#------------------------------------------------------------------------------
+# print more comprehensive summary
+#------------------------------------------------------------------------------
+services.scheduler.wantSummary: true

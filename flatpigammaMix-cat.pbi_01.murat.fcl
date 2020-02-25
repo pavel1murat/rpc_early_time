@@ -1,0 +1,179 @@
+# -*- mode:tcl -*-
+#------------------------------------------------------------------------------
+# flat range of photons from pion stops to study external RPC background
+#
+#  Dave Brown (LBNL) june 2018
+#
+# RPC background (JobConfig/mixing/flatpigammaMix.fcl used as a template)
+#------------------------------------------------------------------------------
+# 1. redefine global constants
+#------------------------------------------------------------------------------
+BEGIN_PROLOG
+  BLIND_TIME      @protect_ignore: 50.   
+#  TimeOffsetMaps @protect_ignore: { inputs : [ "protonTimeMap", "muonTimeMap" ] }
+#  TIME_OFFSET_MAPS @protect_ignore: { inputs : [ "protonTimeMapPrimary", "muonTimeMapPrimary" ] }
+  TIME_OFFSET_MAPS @protect_ignore: { inputs : [ "compressDigiMCs:protonTimeMap", "compressDigiMCs:muonTimeMap" ] }
+END_PROLOG
+#------------------------------------------------------------------------------
+# Dave's templates, then - mine
+#------------------------------------------------------------------------------
+#include "JobConfig/mixing/prolog.fcl"
+#include "Stntuple/fcl/templates.fcl"
+
+process_name: flatpigammamix
+source: { module_type : EmptyEvent }
+services: @local::Services.Sim
+
+physics : { 
+    producers : {
+	generate : {
+	    module_type: RPCGun
+	    verbosityLevel : 1
+	    physics : {
+		spectrumShape         : flat
+		elow                  : 80.0  // Mev
+		ehi                   : 140.0 // Mev
+		generateIntConversion : 1
+	    }
+	    pionStops : {
+		inputFiles :  ["mergedMuonStops/nts.mu2e.pion-DS-TGTstops.MDC2018a.001002_00000000.root" ] 
+		treeName   : "stoppedPionDumper/stops"
+		branchName : "stops"
+	    }
+	}
+
+	@table::Mixing.producers
+ 	@table::Stntuple.reco_producers
+    }
+
+    filters: { @table::Mixing.filters 
+	@table::Stntuple.filters 
+	InitStntuple : { @table::Stntuple.filters.InitStntuple 
+	    histFileName : "stn.murat.flatpigamma-mix.MU2EGRIDDSCONF.001002_00000000.stn" 
+	}
+    }
+    
+    analyzers: { 
+	@table::Mixing.analyzers 
+    }
+    
+    TriggerPath : [
+		   @sequence::Mixing.TriggerPath
+ 		   , @sequence::Stntuple.trk_hit_reco
+ 		   , @sequence::Stntuple.cal_reco
+ 		   , @sequence::Stntuple.reco_De
+ 		   , @sequence::Stntuple.stnmaker_De
+		  ]
+
+    EndPath : [ @sequence::Mixing.EndPath ]
+}
+outputs: { Output : @local::Mixing.Output }
+#------------------------------------------------------------------------------
+# epilog
+#------------------------------------------------------------------------------
+#include "JobConfig/mixing/epilog.fcl"
+
+#------------------------------------------------------------------------------
+# customization
+#------------------------------------------------------------------------------
+# services: print more comprehensive summary
+#------------------------------------------------------------------------------
+services.scheduler.wantSummary: true
+services.BTrkHelper                                  : @local::BTrkHelperDefault
+
+services.TimeTracker : {
+    printSummary : true
+    dbOutput : {
+	filename  : ""
+	overwrite : false
+    }
+}
+
+services.TFileService.fileName                       : "nts.owner.flatpigamma-mix.version.sequencer.root"
+#
+outputs.Output.fileName                              : "dig.owner.flatpigamma-mix.version.sequencer.art"
+physics.end_paths                                    : [ EndPath ] # needed for generate_fcl
+physics.filters.DigiFilter.MinParticleMom            : 10.0
+#------------------------------------------------------------------------------
+# reduce the beam intensity by a factor of 10
+# use correct number of the beam flash events per proton
+#------------------------------------------------------------------------------
+physics.producers.protonBunchIntensity.extendedMean       : 3.9e6    # nominal/10
+physics.filters.flashMixerTrkCal.mu2e.meanEventsPerProton : 9.777e-4 # for uncut flash
+#------------------------------------------------------------------------------
+# were struggling with this for a while
+#------------------------------------------------------------------------------
+User : {
+    caloMixerTags: [ "CaloShowerStepFromStepPt:calorimeter", 
+		     "ootMixerTrkCal:calorimeter", 
+		     "protonMixerTrkCal:calorimeter",
+		     "deuteronMixerTrkCal:calorimeter",
+		     "dioMixerTrkCal:calorimeter",
+		     "photonMixerTrkCal:calorimeter",
+		     "neutronMixerTrkCal:calorimeter",
+		     "flashMixerTrkCal:calorimeter" 
+		    ]
+}
+
+physics.producers.compressDigiMCs.caloShowerStepTags                     : [ @sequence::User.caloMixerTags ] 
+physics.producers.CaloShowerStepROFromShowerStep.caloCrystalShowerInputs : [ @sequence::User.caloMixerTags ] 
+#------------------------------------------------------------------------------
+# flash mixer redefinition for "uncut" beam flash
+#------------------------------------------------------------------------------
+physics.filters.flashMixerTrkCal.mu2e.products                    : { @table::mixerTemplateTrkCal.mu2e.products }
+physics.filters.flashMixerTrkCal.mu2e.products.genParticleMixer   : { mixingMap: [ [ "flashResample", "" ] ] }
+physics.filters.flashMixerTrkCal.mu2e.products.caloShowerStepMixer: { mixingMap:
+    [
+     [ "CaloShowerCrystalSteps", "calorimeter"   ],
+     [ "CaloShowerROSteps"     , "calorimeterRO" ]
+    ]
+}
+
+# exclude "flashMixerTrkCal:protonTimeMap" defined in Mixing.protonTimeMaps
+physics.producers.protonTimeMap.InputTimeMaps : [ "protonTimeMapPrimary", "PSMixerCRV:protonTimeMap", "DSMixerCRV:protonTimeMap" ]
+#------------------------------------------------------------------------------
+# move blind time down to zero, dont' use DB
+#------------------------------------------------------------------------------
+services.DbService.verbose                                   : 0
+services.ProditionsService.strawElectronics.useDb            : false
+services.ProditionsService.strawElectronics.verbose          : 0
+
+services.ProditionsService.strawElectronics.flashEnd         : @erase
+services.ProditionsService.strawElectronics.flashEnd         : @local::BLIND_TIME
+
+physics.producers.CaloShowerStepROFromShowerStep.blindTime   : @erase
+physics.producers.CaloShowerStepROFromShowerStep.blindTime   : @local::BLIND_TIME
+
+physics.producers.CaloDigiFromShower.blindTime               : @erase 
+physics.producers.CaloDigiFromShower.blindTime               : @local::BLIND_TIME
+
+physics.producers.CaloProtoClusterFromCrystalHit.timeCut     : @erase
+physics.producers.CaloProtoClusterFromCrystalHit.timeCut     : @local::BLIND_TIME
+
+physics.producers.makeSH.minimumTime                         : @erase
+physics.producers.makeSH.minimumTime                         : @local::BLIND_TIME
+
+physics.producers.TimeClusterFindere.tmin                    : @erase
+physics.producers.TimeClusterFindere.tmin                    : @local::BLIND_TIME
+# 
+physics.filters.CalTimePeakFinder.minClusterTime             : @erase
+physics.filters.CalTimePeakFinder.minClusterTime             : @local::BLIND_TIME
+# 
+physics.producers.DeltaFinder.minimumTime                    : @erase
+physics.producers.DeltaFinder.minimumTime                    : @local::BLIND_TIME
+# 
+physics.filters.CalHelixFinderDe.HelixFinderAlg.minimumTime : @erase
+physics.filters.CalHelixFinderDe.HelixFinderAlg.minimumTime : @local::BLIND_TIME
+
+#------------------------------------------------------------------------------
+# time offsets do not need to be changed
+#------------------------------------------------------------------------------
+# physics.producers.CaloShowerStepROFromShowerStep.TimeOffsets : @erase
+# physics.producers.CaloShowerStepROFromShowerStep.TimeOffsets : @local::TIME_OFFSET_MAPS
+#------------------------------------------------------------------------------
+# write out straw hit data
+#------------------------------------------------------------------------------
+physics.filters.StntupleMakerDe.makeStrawData: 1
+#------------------------------------------------------------------------------
+# the end
+#------------------------------------------------------------------------------

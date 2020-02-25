@@ -1,0 +1,12 @@
+#
+
+*  <2019-03-20 Wed> the simulation job is using quite a bit of memory
+
+top - 10:51:51 up 90 days,  1:40, 38 users,  load average: 1.61, 2.03, 2.12
+Tasks: 710 total,   2 running, 702 sleeping,   4 stopped,   2 zombie
+Cpu(s):  6.3%us,  0.2%sy,  0.0%ni, 93.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  65863368k total, 53814600k used, 12048768k free,   258204k buffers
+Swap: 10485756k total,   938380k used,  9547376k free, 43395832k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+13382 murat     20   0 4072m 3.1g 240m R 99.7  4.9  56:05.56 mu2e
